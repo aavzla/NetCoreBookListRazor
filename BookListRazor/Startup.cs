@@ -1,4 +1,4 @@
-using BookListRazor.Context;
+using BookListRazor.Model;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

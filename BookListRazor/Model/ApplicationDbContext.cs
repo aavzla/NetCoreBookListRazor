@@ -1,7 +1,6 @@
-﻿using BookListRazor.Model;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace BookListRazor.Context
+namespace BookListRazor.Model
 {
     public class ApplicationDbContext : DbContext
     {

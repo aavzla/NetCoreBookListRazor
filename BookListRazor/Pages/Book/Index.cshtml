@@ -1,0 +1,54 @@
+﻿@page
+@model BookListRazor.Pages.Book.IndexModel
+@{
+    ViewData["Title"] = "Books";
+}
+
+<div class="container row p-0 m-0">
+    <div class="col-6 col-md-8 col-lg-9 col-xl-10">
+        <h2 class="text-info">Book List</h2>
+    </div>
+    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+        <a asp-page="Create" class=" btn btn-info form-control text-white">Create New Book</a>
+    </div>
+    <div class="col-12 border p-3 mt-3">
+        <form method="post">
+            @if (Model.Books.Any())
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            <label asp-for="Books.FirstOrDefault().Name"></label>
+                        </th>
+                        <th>
+                            <label asp-for="Books.FirstOrDefault().Author"></label>
+                            @*@Html.DisplayNameFor(m => m.Books.FirstOrDefault().Author)*@
+                        </th>
+                        <th></th>
+                    </tr>
+                    @foreach (var book in Model.Books)
+                    {
+                        <tr>
+                            <td>
+                                @book.Name
+                                @*@Html.DisplayFor(m => book.Name)*@
+                            </td>
+                            <td>
+                                @book.Author
+                                @*@Html.DisplayFor(m => book.Author)*@
+                            </td>
+                            <td>
+                                <button class="btn btn-danger btn-sm text-white">Delete</button>
+                                <a asp-page="Edit" asp-route-id="@book.Id" class="btn btn-success btn-sm text-white">Edit</a>
+                            </td>
+                        </tr>
+                    }
+                </table>
+            }
+            else
+            {
+                <p>No books avalaible.</p>
+            }
+        </form>
+    </div>
+</div>
