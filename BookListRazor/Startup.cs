@@ -22,6 +22,8 @@ namespace BookListRazor
         {
             //Add Entity Framework to the configuration pipeline. Add database connection to an SQL server through Visual Studio.
             services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            //Add Controllers and Views (In this case for the Controller API)
+            services.AddControllersWithViews();
             //Add Razor pages and the razor Runtime compilation in order to refresh changes in views at runtime.
             services.AddRazorPages().AddRazorRuntimeCompilation();
         }
@@ -49,6 +51,8 @@ namespace BookListRazor
 
             app.UseEndpoints(endpoints =>
             {
+                //Add to map the end point of the Controllers
+                endpoints.MapControllers();
                 endpoints.MapRazorPages();
             });
         }

@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using BookListRazor.Model;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
@@ -21,6 +22,19 @@ namespace BookListRazor.Pages.Book
         public async Task OnGet()
         {
             Books = await _dbContext.Books.ToListAsync();
+        }
+
+        public async Task<IActionResult> OnPostDelete(int id)
+        {
+            var book = await _dbContext.Books.FindAsync(id);
+            if (book == null)
+            {
+                return NotFound();
+            }
+
+            _dbContext.Books.Remove(book);
+            await _dbContext.SaveChangesAsync();
+            return RedirectToPage("Index");
         }
     }
 }
