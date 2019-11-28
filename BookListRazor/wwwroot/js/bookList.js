@@ -21,9 +21,10 @@ function loadDataTable() {
             {
                 "data": "id",
                 "render": function (data) {
+                    //The link for Edit can be pointed to the Edit page or the Upsert Page (Create and Edit at the same page)
                     return `
                         <div class="text-center">
-                            <a href="/Book/Edit?id=${data}" class='btn btn-success text-white m-1' style='cursor: pointer; width: 70px;'>
+                            <a href="/Book/Upsert?id=${data}" class='btn btn-success text-white m-1' style='cursor: pointer; width: 70px;'>
                                 Edit
                             </a>
                             <a class='btn btn-danger text-white m-1' style='cursor: pointer; width: 70px;' onclick=Delete('/api/book?id='+${data})>

@@ -5,11 +5,16 @@
 }
 
 <div class="container row p-0 m-0">
-    <div class="col-6 col-md-8 col-lg-9 col-xl-10">
+    <div class="col-4 col-md-5 col-lg-6 col-xl-8">
         <h2 class="text-info">Book List</h2>
     </div>
-    <div class="col-6 col-md-4 col-lg-3 col-xl-2">
+    @*The link for Create can be pointed to the Create page or the Upsert Page (Create and Edit at the same page)*@
+    <div class="col-4 col-md-4 col-lg-3 col-xl-2">
         <a asp-page="Create" class=" btn btn-info form-control text-white">Create New Book</a>
+    </div>
+    <div class="col-4 col-md-3 col-lg-3 col-xl-2">
+        @*The link for Create can be pointed to the Create page or the Upsert Page (Create and Edit at the same page)*@
+        <a asp-page="Upsert" class=" btn btn-info form-control text-white">Add New Book</a>
     </div>
 
     <div class="col-12 border p-3 mt-3">
@@ -39,7 +44,6 @@
                             </td>
                             <td>
                                 @book.Author
-                                @*@Html.DisplayFor(m => book.Author)*@
                             </td>
                             <td>
                                 @book.ISBN
